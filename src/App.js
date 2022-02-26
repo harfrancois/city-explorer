@@ -5,7 +5,8 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Cities from './Cities.js';
 import Container from 'react-bootstrap/Container';
-import Movies from './Movies';
+import Movie from './Movie';
+import { ListGroup } from 'react-bootstrap';
 
 class App extends React.Component {
   constructor(props) {
@@ -24,12 +25,7 @@ class App extends React.Component {
       city: e.target.value
     })
   };
-  handelSearch = (e) => {
-    e.preventDefault();
-    this.setState({
-      movie: e.target.value
-    })
-  };
+
   handleSubmit = async (e) => {
     e.preventDefault();
     let cityData = await axios.get(`https://us1.locationiq.com/v1/search.php?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&q=${this.state.city}&format=json`);
@@ -40,13 +36,12 @@ class App extends React.Component {
       cityName: cityData.data[0].display_name,
       latitude: cityData.data[0].lat,
       longitude: cityData.data[0].lon,
-
     });
 
     this.displayWeatherData();
     this.displayMovieData();
-
   };
+
 
   displayWeatherData = async () => {
 
@@ -56,25 +51,22 @@ class App extends React.Component {
   };
 
   displayMovieData = async () => {
-    let movieData = await axios.get(`${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.movie}`);
-    console.log(movieData.data);
+    let movieData = await axios.get(`${process.env.REACT_APP_SERVER}/movies?searchQuery=${this.state.city}`);
+    let movies = movieData.data;
     this.setState({
-      movie: movieData.data
+      movieData: movies
     })
-
   }
 
 
   render() {
-    console.log('app state', this.state)
+    console.log('app state', this.state.movieData)
 
-    let movies = this.props.movieData.map((data, idx) => (
-      <Movies 
+    let movies = this.state.movieData.map((movie, idx) => (
+      <Movie 
       key={idx}
-      image={data.images.base_url}
-      title={data.date} 
-      overview={data.overview}
-      release_date={data.release_date}
+      
+      title={movie.title} 
       />
     ));
 
@@ -96,7 +88,7 @@ class App extends React.Component {
             />
             <Button type="submit">Explore</Button>
           </Form>
-          <div><h2>MOVIES</h2></div>
+          {/* <div><h2>MOVIES</h2></div>
           <Form
             className='Movie'
             onSubmit={this.displayMovieData}
@@ -108,7 +100,7 @@ class App extends React.Component {
               onInput={this.handelSearch}
             />
             <Button type='submit'>SEARCH</Button>
-          </Form>
+          </Form> */}
 
           <Cities
             cityData={this.state.cityData}
@@ -117,8 +109,13 @@ class App extends React.Component {
             longitude={this.state.longitude}
             weatherData={this.state.weatherData}
           />
-          <Movies>{movies}</Movies>
-            
+          {
+            this.state.movieData.length > 0 &&
+          <ListGroup>
+            <ListGroup.Item>Popular Movies</ListGroup.Item>
+            {movies}
+            </ListGroup>
+          } 
           
 
 
