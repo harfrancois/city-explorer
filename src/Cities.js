@@ -1,19 +1,17 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
-import WeatherData from './WeatherData.js'
+import Weather from './Weather.js'
 
-class Cards extends React.Component {
+class Cities extends React.Component {
 
 
   render() {
-    // let weather = this.props.weatherData.map((item, idx) => (
-    //   <WeatherData
-    //     key={idx}
-    //     date={item.date}
-    //     description={item.description}
-    //   />
-    // ))
-    
+
+    let forecasts = this.props.weatherData.map((day, idx) => (
+      <Weather key={idx} day={day.date} description={day.description}></Weather>
+    ));
+
+
     let url = `https://maps.locationiq.com/v3/staticmap?key=${process.env.REACT_APP_LOCATIONIQ_API_KEY}&center=${this.props.latitude},${this.props.longitude}&zoom=11`;
     return (
       <>{this.props.cityName &&
@@ -24,10 +22,11 @@ class Cards extends React.Component {
             <Card.Text>Latitude: {this.props.latitude}</Card.Text>
             <Card.Text>Longitude: {this.props.longitude}</Card.Text>
           </Card.Body>
+          <div>{forecasts}</div>
         </Card>
       }</>
     )
   }
 };
 
-export default Cards; 
+export default Cities; 

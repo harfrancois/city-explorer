@@ -1,19 +1,18 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
 
-class MovieData extends React.Component {
+class Weather extends React.Component {
   render() {
     return (
       <>
         <Card>
           <Card.Body>
-            <Card.Text>{}</Card.Text>
-            <Card.Text>{}</Card.Text>
+            <Card.Title>{this.props.date}</Card.Title>
+            <Card.Text>{this.props.description}</Card.Text>
           </Card.Body>
         </Card>
       </>
     )
   }
 };
-
-export default MovieData; 
+export default Weather;
