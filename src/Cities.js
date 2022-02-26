@@ -8,7 +8,7 @@ class Cities extends React.Component {
   render() {
 
     let forecasts = this.props.weatherData.map((day, idx) => (
-      <Weather key={idx} day={day.date} description={day.description}></Weather>
+      <Weather key={idx} date={day.date} description={day.description}></Weather>
     ));
 
 
