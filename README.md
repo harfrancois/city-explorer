@@ -1,31 +1,62 @@
-# Project Name
+# City Explorer
 
 **Author**: Harvey Francois
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+**Version**: 1.4.0 
 
 ## Overview
-<!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
-
-## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+This Project is about connect the the front end to the back end, and learning how it work. City explorer app makes api call to get data from the servers and renders specific data for the user. The app renders weather data and movie list depending on what city your searching for. This was a great learning experience. 
 
 ## Architecture
-![data-flow](city-explorer-data-chart.jpeg)
-## Change Log
-<!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+#### Lab 6
+
+![data-flow](lab6.jpeg)
+
+#### Lab 7
+
+![data-flow](lab7.jpeg)
+
+#### Lab 8
+
+![data-flow](lab6.jpeg)
+
 
 ## Credit and Collaborations
 
-Brady Camp - Classmate
+Ryan Gallaway - 301 instructor
+Thank you for your help.
 
-Name of feature: ________________________________
 
-Estimate of time needed to complete: _____
+Name of feature: 
+lab-6 creating an api connection to location-iq to get the location data and map image.
 
-Start time: _____
+Estimate of time needed to complete: 2-3 hour
 
-Finish time: _____
+Start time: 02/21/2022
 
-Actual time needed to complete: _____
+Finish time: 02/25/2022
+
+Actual time needed to complete: ?
+
+
+Name of feature:
+lab-7 creating a local server and connecting to weather-bit to get weather weather information. send the weather data to the app and have it render with the location.
+
+Estimate of time needed to complete: 3-4 hour
+
+Start time: 02/21/2022
+
+Finish time: 02/25/2022
+
+Actual time needed to complete: ?
+
+Name of feature: 
+lab-8 connecting local server to movie-DB to get data and render it to the app.
+
+Estimate of time needed to complete: 3-4 hour
+
+Start time: 02/21/2022
+
+Finish time: 02/25/2022
+
+Actual time needed to complete: ?
