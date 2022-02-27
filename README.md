@@ -1,7 +1,7 @@
 # City Explorer
 
 **Author**: Harvey Francois
-**Version**: 1.4.0 
+**Version**: 1.7.0 
 
 ## Overview
 This Project is about connect the the front end to the back end, and learning how it work. City explorer app makes api call to get data from the servers and renders specific data for the user. The app renders weather data and movie list depending on what city your searching for. This was a great learning experience. 
