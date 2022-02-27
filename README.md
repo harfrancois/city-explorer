@@ -18,7 +18,7 @@ This Project is about connect the the front end to the back end, and learning ho
 
 #### Lab 8
 
-![data-flow](lab6.jpeg)
+![data-flow](lab8.jpeg)
 
 
 ## Credit and Collaborations
