@@ -5,8 +5,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Cities from './Cities.js';
 import Container from 'react-bootstrap/Container';
-import Movie from './Movie';
-import { ListGroup } from 'react-bootstrap';
+import Movies from './Movies'; 
 
 class App extends React.Component {
   constructor(props) {
@@ -60,16 +59,6 @@ class App extends React.Component {
 
 
   render() {
-    console.log('app state', this.state.movieData)
-
-    let movies = this.state.movieData.map((movie, idx) => (
-      <Movie 
-      key={idx}
-      
-      title={movie.title} 
-      />
-    ));
-
 
     return (
 
@@ -88,19 +77,7 @@ class App extends React.Component {
             />
             <Button type="submit">Explore</Button>
           </Form>
-          {/* <div><h2>MOVIES</h2></div>
-          <Form
-            className='Movie'
-            onSubmit={this.displayMovieData}
-          >
-            <Form.Label>Search For A Movie</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Movie Title"
-              onInput={this.handelSearch}
-            />
-            <Button type='submit'>SEARCH</Button>
-          </Form> */}
+          
 
           <Cities
             cityData={this.state.cityData}
@@ -109,15 +86,10 @@ class App extends React.Component {
             longitude={this.state.longitude}
             weatherData={this.state.weatherData}
           />
-          {
-            this.state.movieData.length > 0 &&
-          <ListGroup>
-            <ListGroup.Item>Popular Movies</ListGroup.Item>
-            {movies}
-            </ListGroup>
-          } 
-          
 
+          <Movies
+          movieData={this.state.movieData}
+          />
 
         </Container>
       </>
